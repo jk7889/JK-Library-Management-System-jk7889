@@ -12,8 +12,8 @@
 #### Step2: Open Access.java in Eclipse > Username = "Enter Your MySQL DBMS Username", Password = "Enter Your MySQL DBMS Password"
 #### Step3: Open Firstpage.java in Eclipse > Run > Administrator Login > Administrator ID: 137691, Password: password > Submit
 #### Step4: Click Users > Table, then complete system_users table will be displayed
-#### Step4: Similarly you can click Table button in Records, Customers and Books Panels to display their respective tables
-#### Step5: Then you can add values shown in the screenshots using the "Add" button
+#### Step5: Similarly you can click Table button in Records, Customers and Books Panels to display their respective tables
+#### Step6: Then you can add values shown in the screenshots using the "Add" button
 
 ## How to Add values?
 #### Step1: Open Customers >
