@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class Admin_Login extends JPanel{
 	private static final long serialVersionUID = 1L;
-    JFrame AdminLoginFrame =new JFrame();
+    	JFrame AdminLoginFrame =new JFrame();
 	JLabel lblAdminID =new JLabel("Administrator ID:");
 	JTextField UserIDText = new JTextField(20);
 	
