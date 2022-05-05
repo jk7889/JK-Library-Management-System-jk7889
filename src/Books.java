@@ -11,27 +11,27 @@ public class Books extends JPanel{
 	private static final long serialVersionUID = 1L;
 
 	Connection conn=null;
-    ResultSet rs =null;
-    ResultSet sr =null;
-    ResultSet sr1 =null;
+    	ResultSet rs =null;
+    	ResultSet sr =null;
+    	ResultSet sr1 =null;
 
-    ResultSet nr =null;
-    ResultSet mn =null;
-    Statement pst =null;
+    	ResultSet nr =null;
+    	ResultSet mn =null;
+    	Statement pst =null;
 
 	public JTextField BookIDText;
 	public JTextField TitleText;
 	public JTextField AuthorText;
 	public JTextField PublisherText;
 	public JTextField PublicationYearText;
-    public JTextField PagesText;
-    public JTextField SearchText;
+    	public JTextField PagesText;
+    	public JTextField SearchText;
 	public JRadioButton rdbtnManual;
 	public JRadioButton rdbtnAutomatic;
-    public JTable TableBooks;
+    	public JTable TableBooks;
     
     //Method for establishing connection with MySQL Database
-    public  void connection() {
+    	public  void connection() {
 		try {
 			 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			 conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/library",Access.Username, Access.Password);
@@ -49,7 +49,7 @@ public class Books extends JPanel{
 		setBounds(0, 0, 1311, 704);
 		setLayout(null);
 
-        JLabel lblBookID = new JLabel("Book ID:");
+        	JLabel lblBookID = new JLabel("Book ID:");
 		lblBookID.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		lblBookID.setBounds(39, 70, 116, 16);
 		add(lblBookID);
@@ -80,11 +80,11 @@ public class Books extends JPanel{
 		add(lblPublicationYear);
 		
 		JLabel lblPages = new JLabel("Pages:");
-	    lblPages.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-	    lblPages.setBounds(39, 375, 146, 30);
-	    add(lblPages);
+	   	lblPages.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+	    	lblPages.setBounds(39, 375, 146, 30);
+	    	add(lblPages);
 	    
-	    JLabel label = new JLabel(":");
+	    	JLabel label = new JLabel(":");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		label.setBounds(148, 607, 7, 30);
 		add(label);
@@ -120,10 +120,10 @@ public class Books extends JPanel{
 		PublicationYearText.setColumns(10);
 		
 		PagesText = new JTextField();
-	    PagesText.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-	    PagesText.setColumns(10);
-	    PagesText.setBounds(200, 379, 116, 22);
-	    add(PagesText);
+	    	PagesText.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+	    	PagesText.setColumns(10);
+	    	PagesText.setBounds(200, 379, 116, 22);
+	    	add(PagesText);
 		
 		SearchText = new JTextField();
 		SearchText.setFont(new Font("Times New Roman", Font.ITALIC, 20));
@@ -162,10 +162,10 @@ public class Books extends JPanel{
 		add(btnView);
 		
 		JButton btnShowDatabase = new JButton("Table");
-	    btnShowDatabase.setFocusPainted(false);
-	    btnShowDatabase.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-	    btnShowDatabase.setBounds(230, 487, 86, 25);
-	    add(btnShowDatabase);
+	    	btnShowDatabase.setFocusPainted(false);
+	    	btnShowDatabase.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+	    	btnShowDatabase.setBounds(230, 487, 86, 25);
+	    	add(btnShowDatabase);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.setFocusPainted(false);
@@ -179,7 +179,7 @@ public class Books extends JPanel{
 		add(ScrollPaneBooks);
 	
 		rdbtnManual = new JRadioButton("Manual");
-	    rdbtnManual.setBackground(new Color(255, 250, 232));
+	    	rdbtnManual.setBackground(new Color(255, 250, 232));
 		rdbtnManual.setBounds(142, 175, 69, 25);
 		add(rdbtnManual);
 		
@@ -189,29 +189,29 @@ public class Books extends JPanel{
 		add(rdbtnAutomatic);
 		
 		ButtonGroup bg1 = new ButtonGroup( );
-        bg1.add(rdbtnManual);
+        	bg1.add(rdbtnManual);
 		bg1.add(rdbtnAutomatic);
 		
-	    rdbtnManual.setSelected(true);
+	    	rdbtnManual.setSelected(true);
 	 
 		TableBooks = new JTable();
 		TableBooks.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 		TableBooks.setRowHeight(TableBooks.getRowHeight() + 10);
 		JTableHeader header = TableBooks.getTableHeader();
-        header.setBackground(new Color(255, 250, 232));
-        header.setForeground(Color.BLACK);
+       		header.setBackground(new Color(255, 250, 232));
+        	header.setForeground(Color.BLACK);
 		ScrollPaneBooks.setViewportView(TableBooks);
 		
 		//All action listeners
 		btnReset.addActionListener(actionevent -> reset());
-	    btnDelete.addActionListener(actionevent ->remove());
-	    btnAdd.addActionListener(actionevent ->addition());
-	    btnSave.addActionListener(actionevent ->saved());
-	    btnView.addActionListener(actionevent -> look());
-	    btnSearch.addActionListener(actionevent -> searche());
-	    btnShowDatabase.addActionListener(actionevent -> table());
-	    rdbtnManual.addActionListener(actionevent ->textedit());
-	    rdbtnAutomatic.addActionListener(actionevent ->notextedit());
+	    	btnDelete.addActionListener(actionevent ->remove());
+	    	btnAdd.addActionListener(actionevent ->addition());
+	    	btnSave.addActionListener(actionevent ->saved());
+	    	btnView.addActionListener(actionevent -> look());
+	    	btnSearch.addActionListener(actionevent -> searche());
+	    	btnShowDatabase.addActionListener(actionevent -> table());
+	    	rdbtnManual.addActionListener(actionevent ->textedit());
+	    	rdbtnAutomatic.addActionListener(actionevent ->notextedit());
 	    
 		setVisible(true);
 	}
@@ -255,8 +255,8 @@ public class Books extends JPanel{
 			  *which means the id in books table needs to be entered by 
 			  *the system user
 			  */
-		     connection();
-		     textedit();
+		    	 connection();
+		     	 textedit();
 			 String sql="insert into books (id,title,author,publisher,publishing_year,pages) values (?,?,?,?,?,?)";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,BookIDText.getText());
@@ -270,9 +270,9 @@ public class Books extends JPanel{
 			 Matcher matcher = pattern.matcher(PublicationYearText.getText());
 			 if(matcher.matches() == true) {
 				 pst.setString(5,PublicationYearText.getText());
-		     }else {
-		    	 JOptionPane.showMessageDialog(null, "This year is not 4 digits", "Alert",JOptionPane.ERROR_MESSAGE);
-		     }
+			 }else {
+			 	 JOptionPane.showMessageDialog(null, "This year is not 4 digits", "Alert",JOptionPane.ERROR_MESSAGE);
+		     	 }
 			 pst.setString(6,PagesText.getText());
 			 pst.executeUpdate();
 			 
@@ -309,9 +309,9 @@ public class Books extends JPanel{
 			 Matcher matcher = pattern.matcher(PublicationYearText.getText());
 			 if(matcher.matches() == true) {
 				 pst.setString(4,PublicationYearText.getText());
-		     }else {
-		    	 JOptionPane.showMessageDialog(null, "This year is not 4 digits", "Alert",JOptionPane.ERROR_MESSAGE);
-		     }
+		     	 }else {
+		    	 	 JOptionPane.showMessageDialog(null, "This year is not 4 digits", "Alert",JOptionPane.ERROR_MESSAGE);
+		     	 }
 			 pst.setString(5,PagesText.getText());
 			 pst.executeUpdate();
 			 
@@ -350,7 +350,7 @@ public class Books extends JPanel{
 			/*This method deletes a row from the books table associated with the 
 			  *book id entered in in BookIDText JTextField
 			  */
-		     connection();
+		     	 connection();
 			 String sql="delete from books where id = ?";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,BookIDText.getText());
@@ -375,7 +375,7 @@ public class Books extends JPanel{
 			String sql="select * from books where CONCAT(id,title,author,publisher,publishing_year,pages) like '%"+SearchText.getText()+"%';";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			sr=pst.executeQuery();
-		    TableBooks.setModel(DbUtils.resultSetToTableModel(sr));
+		    	TableBooks.setModel(DbUtils.resultSetToTableModel(sr));
 	    }catch(Exception e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Alert",JOptionPane.ERROR_MESSAGE);
@@ -398,7 +398,7 @@ public class Books extends JPanel{
 				 mn=sat.executeQuery();
 				 TableBooks.setModel(DbUtils.resultSetToTableModel(mn));
 			 }else if(BookIDText.getText().equals(BookIDText.getText())) {
-				    String sql = "select id,title,author,publisher,publishing_year,pages from books where id = ?";
+				 String sql = "select id,title,author,publisher,publishing_year,pages from books where id = ?";
 			        PreparedStatement pst=conn.prepareStatement(sql);
 			        pst.setString(1,BookIDText.getText());
                     rs = pst.executeQuery();
