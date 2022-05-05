@@ -7,9 +7,9 @@ public class Firstpage extends JFrame {
 	JLabel lblWelcome = new JLabel("WELCOME ! ");
 	
 	JButton btnAdminLogin = new JButton("Administrator Login");
-    JButton btnUserLogin = new JButton("User Login");
+    	JButton btnUserLogin = new JButton("User Login");
     
-    JLabel lblLibraryImage = new JLabel("");
+    	JLabel lblLibraryImage = new JLabel("");
     
     //Constructor to initialize components in JFrame FirstPageFrame
 	public Firstpage() {
@@ -25,8 +25,8 @@ public class Firstpage extends JFrame {
 		 FirstPageFrame.setBounds(100, 100, 981, 621);
 		 FirstPageFrame.setLocation(500,100);
 		 FirstPageFrame.setResizable(false);
-	     FirstPageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	     FirstPageFrame.getContentPane().setLayout(null);
+	     	 FirstPageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	     	 FirstPageFrame.getContentPane().setLayout(null);
 
 		 lblWelcome.setBackground(SystemColor.controlHighlight);
 		 lblWelcome.setForeground(SystemColor.window);
