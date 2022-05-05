@@ -15,8 +15,8 @@ public class Statistics extends JPanel{
 	private static final long serialVersionUID = -1273345243218224300L;
 	
 	Connection conn=null;
-    ResultSet rs =null;
-    ResultSet sr =null;
+    	ResultSet rs =null;
+    	ResultSet sr =null;
 	public JLabel lblToatlBooksValue;
 	public JLabel lblTotalBooksRentedValue;
 	public JLabel lblTotalBooksPurchasedValue; 
