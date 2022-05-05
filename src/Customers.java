@@ -13,13 +13,13 @@ public class Customers extends JPanel{
 	private static final long serialVersionUID = 1L;
 
 	Connection conn=null;
-    ResultSet rs =null;
-    ResultSet sr =null;
-    ResultSet sr1 =null;
+    	ResultSet rs =null;
+    	ResultSet sr =null;
+    	ResultSet sr1 =null;
 
-    ResultSet nr =null;
-    ResultSet mn =null;
-    Statement pst =null;
+    	ResultSet nr =null;
+    	ResultSet mn =null;
+    	Statement pst =null;
 	
 	public JTextField CustomerIDText;
 	public JTextField CustomerNameText;
@@ -32,7 +32,7 @@ public class Customers extends JPanel{
     public JTable TableCustomers;
     
     //Method for establishing connection with MySQL Database
-    public  void connection() {
+       public  void connection() {
 		try {
 			 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			 conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/library",Access.Username, Access.Password);
@@ -50,7 +50,7 @@ public class Customers extends JPanel{
 		setBounds(0, 0, 1311, 704);
 		setLayout(null);
 
-        JLabel lblCustomerID = new JLabel("Customer ID:");
+        	JLabel lblCustomerID = new JLabel("Customer ID:");
 		lblCustomerID.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		lblCustomerID.setBounds(39, 70, 116, 16);
 		add(lblCustomerID);
@@ -152,10 +152,10 @@ public class Customers extends JPanel{
 		add(btnDelete);
 		
 		JButton btnShowDatabase = new JButton("Table");
-	    btnShowDatabase.setFocusPainted(false);
-	    btnShowDatabase.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-	    btnShowDatabase.setBounds(230, 441, 86, 25);
-	    add(btnShowDatabase);
+	    	btnShowDatabase.setFocusPainted(false);
+	    	btnShowDatabase.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+	    	btnShowDatabase.setBounds(230, 441, 86, 25);
+	    	add(btnShowDatabase);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.setFocusPainted(false);
@@ -164,7 +164,7 @@ public class Customers extends JPanel{
 		add(btnSearch);
 		
 		rdbtnManual = new JRadioButton("Manual");
-	    rdbtnManual.setBackground(new Color(255, 250, 232));
+	    	rdbtnManual.setBackground(new Color(255, 250, 232));
 		rdbtnManual.setBounds(142, 175, 69, 25);
 		add(rdbtnManual);
 		
@@ -174,10 +174,10 @@ public class Customers extends JPanel{
 		add(rdbtnAutomatic);
 		
 		ButtonGroup bg1 = new ButtonGroup( );
-        bg1.add(rdbtnManual);
+        	bg1.add(rdbtnManual);
 		bg1.add(rdbtnAutomatic);
 		
-	    rdbtnManual.setSelected(true);
+	    	rdbtnManual.setSelected(true);
 		
 		JScrollPane ScrollPaneCustomers = new JScrollPane();
 		ScrollPaneCustomers.setBounds(349, 13, 939, 678); //setBounds(333, 13, 1110, 800);
@@ -188,20 +188,20 @@ public class Customers extends JPanel{
 		TableCustomers.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 		TableCustomers.setRowHeight(TableCustomers.getRowHeight() + 10);
 		JTableHeader header = TableCustomers.getTableHeader();
-        header.setBackground(new Color(255, 250, 232));
-        header.setForeground(Color.BLACK);
+        	header.setBackground(new Color(255, 250, 232));
+        	header.setForeground(Color.BLACK);
 		ScrollPaneCustomers.setViewportView(TableCustomers);
 		
 		//All action listeners
 		btnReset.addActionListener(actionevent -> reset());
-	    btnDelete.addActionListener(actionevent ->remove());
-	    btnAdd.addActionListener(actionevent ->addition());
-	    btnSave.addActionListener(actionevent ->saved());
-	    btnView.addActionListener(actionevent -> look());
-	    btnSearch.addActionListener(actionevent -> searche());
-	    btnShowDatabase.addActionListener(actionevent -> table());
-	    rdbtnManual.addActionListener(actionevent ->textedit());
-	    rdbtnAutomatic.addActionListener(actionevent ->notextedit());
+	    	btnDelete.addActionListener(actionevent ->remove());
+	    	btnAdd.addActionListener(actionevent ->addition());
+	    	btnSave.addActionListener(actionevent ->saved());
+	    	btnView.addActionListener(actionevent -> look());
+	    	btnSearch.addActionListener(actionevent -> searche());
+	    	btnShowDatabase.addActionListener(actionevent -> table());
+	    	rdbtnManual.addActionListener(actionevent ->textedit());
+	    	rdbtnAutomatic.addActionListener(actionevent ->notextedit());
 	     
 		setVisible(true);
 	}
@@ -244,8 +244,8 @@ public class Customers extends JPanel{
 			  *which means the id in customer_info table needs to be entered by 
 			  *the system user
 			  */
-		     connection();
-		     textedit();
+		     	 connection();
+		     	 textedit();
 			 String sql="insert into customer_info (id,name,address,city,phone_number) values (?,?,?,?,?)";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,CustomerIDText.getText());
@@ -347,7 +347,7 @@ public class Customers extends JPanel{
 			/*This method deletes a row from the customer_info table associated with the 
 			  *customer id entered in in CustomerIDText JTextField
 			  */
-		     connection();
+		     	 connection();
 			 String sql="delete from customer_info where id = ?";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,CustomerIDText.getText());
@@ -367,12 +367,12 @@ public class Customers extends JPanel{
 
 	public void searche() {
 		//This method searches the whole table for the string which will be entered in the SearchText JTextField
-		try {
+	try {
 		 connection();
 		 String sql="select * from customer_info where CONCAT(id,name,address,city,phone_number) like '%"+SearchText.getText()+"%';";
 		 PreparedStatement pst = conn.prepareStatement(sql);
 		 sr=pst.executeQuery();
-	     TableCustomers.setModel(DbUtils.resultSetToTableModel(sr));
+	     	 TableCustomers.setModel(DbUtils.resultSetToTableModel(sr));
 	}catch(Exception e) {
 		e.printStackTrace();
 		JOptionPane.showMessageDialog(null, e.getMessage(), "Alert",JOptionPane.ERROR_MESSAGE);
@@ -396,9 +396,9 @@ public class Customers extends JPanel{
 				 TableCustomers.setModel(DbUtils.resultSetToTableModel(mn));
 			 }else if(CustomerIDText.getText().equals(CustomerIDText.getText())) {
 				 String sql = "select id,name,address,city,phone_number from customer_info where id = ?";
-			     PreparedStatement pst=conn.prepareStatement(sql);
-			        pst.setString(1,CustomerIDText.getText());
-                    rs = pst.executeQuery();
+			     	 PreparedStatement pst=conn.prepareStatement(sql);
+			         pst.setString(1,CustomerIDText.getText());
+				 rs = pst.executeQuery();
 			    while(rs.next()) { 
 			        CustomerIDText.setText(rs.getString("id"));
 			        CustomerNameText.setText(rs.getString("name"));
@@ -425,7 +425,7 @@ public class Customers extends JPanel{
 			 String sql="select * from customer_info";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 sr=pst.executeQuery();
-		     TableCustomers.setModel(DbUtils.resultSetToTableModel(sr));
+		     	 TableCustomers.setModel(DbUtils.resultSetToTableModel(sr));
 		}catch(Exception e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Alert",JOptionPane.ERROR_MESSAGE);
@@ -455,9 +455,9 @@ public class Customers extends JPanel{
 				 Matcher matcher = pattern.matcher(PhoneNumberText.getText());
 				 if(matcher.matches() == true) {
 					 pst.setString(4,PhoneNumberText.getText());
-			     }else {
+			    	 }else {
 			    	 JOptionPane.showMessageDialog(null, "This phone number is not 10 digits", "Alert",JOptionPane.ERROR_MESSAGE);
-			     }
+			     	 }
 			 }
 			 pst.setString(5,CustomerIDText.getText());
 			 pst.executeUpdate();
@@ -473,7 +473,7 @@ public class Customers extends JPanel{
 		     
 		    //The below SQL and Java code displays the table after updating it
 		     String sql1 ="select * from customer_info where id = ?";
-			 PreparedStatement stmt=conn.prepareStatement(sql1);
+		     PreparedStatement stmt=conn.prepareStatement(sql1);
 		     stmt.setString(1,CustomerIDText.getText());
 		     sr=stmt.executeQuery();
 		     TableCustomers.setModel(DbUtils.resultSetToTableModel(sr));
