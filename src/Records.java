@@ -21,7 +21,7 @@ import javax.swing.JScrollPane;
 public class Records extends JPanel {
 	private static final long serialVersionUID = 1L;
 	Connection conn=null;
-    ResultSet rs =null;
+    	ResultSet rs =null;
     
 	private JTextField CustomerIDText;
 	private JTextField CustomerNameText;
@@ -70,7 +70,7 @@ public class Records extends JPanel {
 		JLabel lblCustomerID = new JLabel("Customer ID:");
 		lblCustomerID.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		lblCustomerID.setBounds(26, 143, 127, 24);
-	    add(lblCustomerID);
+	    	add(lblCustomerID);
 		
 		JLabel lblCustomerName = new JLabel("Name:");
 		lblCustomerName.setFont(new Font("Times New Roman", Font.ITALIC, 20));
@@ -187,9 +187,9 @@ public class Records extends JPanel {
 		
 		JButton btnShowDatabase = new JButton("Table");
 		btnShowDatabase.setFocusPainted(false);
-	    btnShowDatabase.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-	    btnShowDatabase.setBounds(216, 521, 86, 25);
-	    add(btnShowDatabase);
+	    	btnShowDatabase.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+	    	btnShowDatabase.setBounds(216, 521, 86, 25);
+	    	add(btnShowDatabase);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.setFocusPainted(false);
@@ -214,15 +214,15 @@ public class Records extends JPanel {
 		add(rdbtnPurchase);
 		
 		ButtonGroup bg = new ButtonGroup();
-	    bg.add(rdbtnManual);
-	    bg.add(rdbtnAutomatic);
+	    	bg.add(rdbtnManual);
+	    	bg.add(rdbtnAutomatic);
 	    
-	    ButtonGroup bg2 = new ButtonGroup( );
-        bg2.add(rdbtnRent);
+	    	ButtonGroup bg2 = new ButtonGroup( );
+        	bg2.add(rdbtnRent);
 		bg2.add(rdbtnPurchase);
 		
 		rdbtnManual.setSelected(true);
-	    rdbtnRent.setSelected(true);
+	    	rdbtnRent.setSelected(true);
 		
 		JScrollPane ScrollPaneRecord = new JScrollPane();
 		ScrollPaneRecord.setBounds(320, 13, 979, 674); 
@@ -233,12 +233,12 @@ public class Records extends JPanel {
 		TableRecord.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 		TableRecord.setRowHeight(TableRecord.getRowHeight() + 10);
 		JTableHeader header = TableRecord.getTableHeader();
-        header.setBackground(new Color(255, 250, 232));
-        header.setForeground(Color.BLACK);
+       		header.setBackground(new Color(255, 250, 232));
+        	header.setForeground(Color.BLACK);
 		ScrollPaneRecord.setViewportView(TableRecord);
 	    
 		//All action listeners
-        btnView.addActionListener(actionevent -> look());
+        	btnView.addActionListener(actionevent -> look());
 		btnAdd.addActionListener(actionevent -> addition());
 		btnReset.addActionListener(actionevent -> reset());
 		btnDelete.addActionListener(actionevent -> remove());
@@ -247,8 +247,8 @@ public class Records extends JPanel {
 		btnShowDatabase.addActionListener(actionevent -> table());
 		rdbtnPurchase.addActionListener(actionevent -> purchasee());
 		rdbtnRent.addActionListener(actionevent -> rentt());
-        rdbtnManual.addActionListener(actionevent -> textedit());
-        rdbtnAutomatic.addActionListener(actinevent -> notextedit());
+        	rdbtnManual.addActionListener(actionevent -> textedit());
+        	rdbtnAutomatic.addActionListener(actinevent -> notextedit());
 		
 		setVisible(true);
 	}
