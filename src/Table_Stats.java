@@ -21,12 +21,12 @@ public class Table_Stats extends JPanel{
 	private static final long serialVersionUID = -1273345243218224300L;
 	
 	Connection conn=null;
-    ResultSet rs =null;
-    ResultSet sr =null;
-    public JTable TableBooksPerCustomer;
-    public JTable TableBooksRentedPerCustomer;
-    public JTable TableBooksPurchasedPerCustomer;
-    public JTable TableBooksPerAuthor;
+    	ResultSet rs =null;
+    	ResultSet sr =null;
+    	public JTable TableBooksPerCustomer;
+    	public JTable TableBooksRentedPerCustomer;
+    	public JTable TableBooksPurchasedPerCustomer;
+    	public JTable TableBooksPerAuthor;
 	
     //Method for establishing connection with MySQL Database
 	public  void connection() {
@@ -56,8 +56,8 @@ public class Table_Stats extends JPanel{
 		TableBooksPerCustomer.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 		TableBooksPerCustomer.setRowHeight(TableBooksPerCustomer.getRowHeight() + 10);
 		JTableHeader header = TableBooksPerCustomer.getTableHeader();
-        header.setBackground(new Color(255, 218, 185));
-        header.setForeground(Color.BLACK);
+        	header.setBackground(new Color(255, 218, 185));
+        	header.setForeground(Color.BLACK);
 		scrollPaneBooksPerCustomer.setViewportView(TableBooksPerCustomer);
 		
 		JScrollPane scrollPaneBooksRentedPerCustomer = new JScrollPane();
@@ -71,7 +71,7 @@ public class Table_Stats extends JPanel{
 		JTableHeader header1 = TableBooksRentedPerCustomer.getTableHeader();
 		header1.setBackground(new Color(255, 250, 205));
 		header1.setForeground(Color.BLACK);
-        scrollPaneBooksRentedPerCustomer.setViewportView(TableBooksRentedPerCustomer);
+        	scrollPaneBooksRentedPerCustomer.setViewportView(TableBooksRentedPerCustomer);
 		
 		JButton btnShowAllDatabases = new JButton("Show ALL");
 		btnShowAllDatabases.setFocusPainted(false);
