@@ -11,7 +11,7 @@ public class Firstpage extends JFrame {
     
     	JLabel lblLibraryImage = new JLabel("");
     
-    //Constructor to initialize components in JFrame FirstPageFrame
+    	//Constructor to initialize components in JFrame FirstPageFrame
 	public Firstpage() {
 		firstpage();
 	}
