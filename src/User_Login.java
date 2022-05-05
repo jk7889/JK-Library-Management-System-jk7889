@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class User_Login extends JPanel{
 	private static final long serialVersionUID = 1L;
-    JFrame UserLoginFrame =new JFrame();
+    	JFrame UserLoginFrame =new JFrame();
 	JLabel LblUserID =new JLabel("User ID:");
 	JTextField UserIDText = new JTextField(20);
 	
@@ -89,8 +89,8 @@ public class User_Login extends JPanel{
 		 
 		 //Action Listeners for all JButtons
 		 btnSubmit.addActionListener(actionevent -> submit());
-	     btnReset.addActionListener(actionevent -> reset());
-	     btnBack.addActionListener(actionevent -> back());
+	     	 btnReset.addActionListener(actionevent -> reset());
+	     	 btnBack.addActionListener(actionevent -> back());
 		 
 		 UserLoginFrame.setVisible(true);
 		 UserLoginFrame.setResizable(false);
@@ -111,7 +111,7 @@ public class User_Login extends JPanel{
 					JOptionPane.showMessageDialog(null, "Invalid ID: The ID only contains numbers","error",JOptionPane.ERROR_MESSAGE); 
 				} 
 			 
-			//Alert to fill both User ID and Password details otherwise considered incomplete
+			 //Alert to fill both User ID and Password details otherwise considered incomplete
 			 if(UserIDText.getText().equals("") || UserPasswdText.getPassword().equals("")) {
 	        	 JOptionPane.showInternalMessageDialog(btnSubmit, "Please complete your details","alert",JOptionPane.WARNING_MESSAGE);
 			 }else { 
