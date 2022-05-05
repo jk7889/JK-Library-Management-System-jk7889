@@ -101,11 +101,11 @@ static public String Password = "Your MySQL Password";
 
 <p><img alt="gif" src="https://github.com/jk7889/JK-Library-Management-System-jk7889/blob/main/screenshots/View.gif" /></p>
 
-## How to update a value?
+## How to Update a value?
 
 <p><img alt="gif" src="https://github.com/jk7889/JK-Library-Management-System-jk7889/blob/main/screenshots/Save.gif" /></p>
 
-## How to search a table?
+## How to Search a table?
 
 <p><img alt="gif" src="https://github.com/jk7889/JK-Library-Management-System-jk7889/blob/main/screenshots/Search.gif" /></p>
 
