@@ -25,8 +25,8 @@ public class System_Users extends JPanel{
 	private static final long serialVersionUID = -1273345243218224300L;
 	
 	Connection conn=null;
-    ResultSet rs =null;
-    ResultSet sr =null;
+    	ResultSet rs =null;
+    	ResultSet sr =null;
     
 	public JTextField SystemUserIDText;
 	public JTextField UserNameText;
@@ -190,7 +190,7 @@ public class System_Users extends JPanel{
 		add(rdbtnAutomatic);
 		
 		ButtonGroup bg1 = new ButtonGroup( );
-        bg1.add(rdbtnManual);
+        	bg1.add(rdbtnManual);
 		bg1.add(rdbtnAutomatic);
 		rdbtnManual.setSelected(true);
 		
@@ -204,20 +204,20 @@ public class System_Users extends JPanel{
 		TableSystemUser.setFont(new Font("Sans Serif", Font.PLAIN, 18));
 		TableSystemUser.setRowHeight(TableSystemUser.getRowHeight() + 10);
 		JTableHeader header = TableSystemUser.getTableHeader();
-        header.setBackground(new Color(255, 250, 232));
-        header.setForeground(Color.BLACK);
+        	header.setBackground(new Color(255, 250, 232));
+        	header.setForeground(Color.BLACK);
 		ScrollPaneSystemUser.setViewportView(TableSystemUser);
 		
 		//All action listeners
 		btnReset.addActionListener(actionevent -> reset());
-	    btnDelete.addActionListener(actionevent ->remove());
-	    btnSearch.addActionListener(actionevent -> searche());
-	    btnView.addActionListener(actionevent -> look());
-	    btnAdd.addActionListener(actionevent -> addition());
-	    btnSave.addActionListener(actionevent -> saved());
-	    btnShowDatabase.addActionListener(actionevent -> table());
-	    rdbtnManual.addActionListener(actionevent ->textedit());
-	    rdbtnAutomatic.addActionListener(actionevent ->notextedit());
+	    	btnDelete.addActionListener(actionevent ->remove());
+	    	btnSearch.addActionListener(actionevent -> searche());
+	    	btnView.addActionListener(actionevent -> look());
+	    	btnAdd.addActionListener(actionevent -> addition());
+	    	btnSave.addActionListener(actionevent -> saved());
+	    	btnShowDatabase.addActionListener(actionevent -> table());
+	    	rdbtnManual.addActionListener(actionevent ->textedit());
+	    	rdbtnAutomatic.addActionListener(actionevent ->notextedit());
 		
 		setVisible(true);
 		
@@ -262,8 +262,8 @@ public class System_Users extends JPanel{
 			  *which means the id in system_users table needs to be entered by 
 			  *the system admin
 			  */
-		     connection();
-		     textedit();
+		     	 connection();
+		     	 textedit();
 			 String sql="insert into system_users (id,username,library_name,email,password) values (?,?,?,?,?)";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,SystemUserIDText.getText());
@@ -304,8 +304,8 @@ public class System_Users extends JPanel{
 			  *table will automatically assign one upon insertion because of auto_increment
 			  *constraint on system_user table
 			  */
-		     connection();
-		     notextedit();
+		     	 connection();
+		     	 notextedit();
 			 String sql="insert into system_users (username,library_name,email,password) values (?,?,?,?)";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,firstLetterCapital(UserNameText.getText()));
@@ -359,7 +359,7 @@ public class System_Users extends JPanel{
 			 /*This method deletes a row from the system_user table associated with the 
 			  *user id entered in in SystemUserIDText JTextField
 			  */
-		     connection();
+		     	 connection();
 			 String sql="delete from system_users where id = ?";
 			 PreparedStatement pst = conn.prepareStatement(sql);
 			 pst.setString(1,SystemUserIDText.getText());
@@ -379,17 +379,17 @@ public class System_Users extends JPanel{
 
 	public void searche() {
 		try {
-		 //This method searches the whole table for the string which will be entered in the SearchText JTextField
-		 connection();
-		 String sql="select id,username,library_name,email from system_users where CONCAT(id,username,library_name,email) like '%"+SearchText.getText()+"%';";
-		 PreparedStatement pst = conn.prepareStatement(sql);
-		 rs=pst.executeQuery();
-	     TableSystemUser.setModel(DbUtils.resultSetToTableModel(rs));
-	}catch(Exception e) {
-		e.printStackTrace();
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Alert",JOptionPane.ERROR_MESSAGE);
-	}
-	}
+			 //This method searches the whole table for the string which will be entered in the SearchText JTextField
+			 connection();
+			 String sql="select id,username,library_name,email from system_users where CONCAT(id,username,library_name,email) like '%"+SearchText.getText()+"%';";
+			 PreparedStatement pst = conn.prepareStatement(sql);
+			 rs=pst.executeQuery();
+			 TableSystemUser.setModel(DbUtils.resultSetToTableModel(rs));
+		}catch(Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Alert",JOptionPane.ERROR_MESSAGE);
+		}
+		}
 	
 	public void look() {
 		try {
@@ -408,20 +408,20 @@ public class System_Users extends JPanel{
 				 TableSystemUser.setModel(DbUtils.resultSetToTableModel(rs));
 			 }else if(SystemUserIDText.getText().equals(SystemUserIDText.getText())) {
 				 String sql = "select id,username,library_name,email from system_users where id = ?";
-			     PreparedStatement pst=conn.prepareStatement(sql);
-			       pst.setString(1,SystemUserIDText.getText());
-                   rs = pst.executeQuery();
-			    while(rs.next()) { 
+			     	 PreparedStatement pst=conn.prepareStatement(sql);
+				 pst.setString(1,SystemUserIDText.getText());
+                   		 rs = pst.executeQuery();
+			  while(rs.next()) { 
 			        SystemUserIDText.setText(rs.getString("id"));
 			        UserNameText.setText(rs.getString("username"));
 			        LibraryNameText.setText(rs.getString("library_name"));
 			        EmailText.setText(rs.getString("email"));
 			    }
 			         //The below Java code only displays the row in the table whose User ID is entered
-				     PreparedStatement stmt=conn.prepareStatement(sql);
-				     stmt.setString(1,SystemUserIDText.getText());
-				     sr=stmt.executeQuery();
-				     TableSystemUser.setModel(DbUtils.resultSetToTableModel(sr));
+			     	PreparedStatement stmt=conn.prepareStatement(sql);
+			     	stmt.setString(1,SystemUserIDText.getText());
+			     	sr=stmt.executeQuery();
+			     	TableSystemUser.setModel(DbUtils.resultSetToTableModel(sr));
 			 }}
 	      catch(Exception e) {
 				e.printStackTrace();
@@ -457,9 +457,9 @@ public class System_Users extends JPanel{
 			 //The below SQL and Java code displays the table after the updating values
 			 String sql1 ="select id,username,library_name,email from system_users where id = ?";
 			 PreparedStatement stmt=conn.prepareStatement(sql1);
-		     stmt.setString(1,SystemUserIDText.getText());
-		     sr=stmt.executeQuery();
-		     TableSystemUser.setModel(DbUtils.resultSetToTableModel(sr));
+		     	 stmt.setString(1,SystemUserIDText.getText());
+		     	 sr=stmt.executeQuery();
+		     	 TableSystemUser.setModel(DbUtils.resultSetToTableModel(sr));
 			}catch(Exception e) {
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, e.getMessage(), "Alert",JOptionPane.ERROR_MESSAGE);
